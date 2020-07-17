@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BASE_URL, CHARACTER_KEY } from './constants/index';
+import { BASE_URL, CHARACTER_KEY } from '../constants/index';
 import axios from 'axios';
 import styled from 'styled-components'
 
@@ -10,12 +10,12 @@ color: white;
 
 export default function Character (props) {
     const {keyId, close } = props
-    const [details, setDetails] = useState(null)
+    const [details, setDetails] = useState('')
 
 useEffect(() => {
     axios.get(`${BASE_URL}${CHARACTER_KEY}${keyId}`)
       .then(res => { 
-          setDetails(res.data.results) 
+          setDetails(res.data)
           console.log(res)
         })
       .catch(err => { 
@@ -29,14 +29,15 @@ return (
         <h2>Details:</h2>
         {
             details &&
+    
             <>
                 <span><img alt ={details.name} src={details.image}/></span>
                 <p>{details.name} is {details.age} and {details.status}</p>
                 <p>Species: {details.species}</p>
                 <span>Origin: <a href={details.origin.url}>{details.origin.name}</a></span>
-                <h3>Episodes</h3>
+                {/* <h3>Episodes</h3> */}
             {/* <ul>
-                {
+                
                     details.episode.map((episode) => <li>{episode}</li>)
                 }
             </ul>

@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Character from './Character';
+import Character from './components/Character';
 import axios from 'axios';
 import { BASE_URL, CHARACTER_KEY } from './constants';
 import './App.css';
+import styled from 'styled-components'
+
+const StyledApp = styled.div`
+background-image: url("https://wallpapercave.com/wp/wp3277657.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+color: red;
+`
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -40,7 +49,7 @@ const CharacterList = ({ info }) => (
   </div>
 )
   return (
-    <div className="App">
+    <StyledApp className="App">
       <h1 className="Header">Rick and Morty Characters!</h1>
       {
         character.map(person => {
@@ -50,7 +59,7 @@ const CharacterList = ({ info }) => (
       {
         currentCharacterId && <Character alert={currentCharacterId} keyId={currentCharacterId} close={closeDetails} />
       }
-    </div>
+    </StyledApp>
   );
 }
 
