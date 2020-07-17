@@ -32,7 +32,7 @@ return (
     
             <>
                 <span><img alt ={details.name} src={details.image}/></span>
-                <p>{details.name} is {details.age} and {details.status}</p>
+                <p>{details.name} is a {details.gender} and {details.status}</p>
                 <p>Species: {details.species}</p>
                 <span>Origin: <a href={details.origin.url}>{details.origin.name}</a></span>
                 {/* <h3>Episodes</h3> */}
